@@ -13,8 +13,10 @@ class Play( States.State ):
 
     def update( self, change ):
         self.player.update()
-        if self.map.circleCollision( self.player ):
-            print( "kolizja" )
+
+        id = self.map.circleCollision( self.player )
+        if id > -1:
+            self.player.colissionPosConvert( self.map.getTileBound( id ) )
 
     def render( self ):
         self.map.render()

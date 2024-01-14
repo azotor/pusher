@@ -1,4 +1,4 @@
-import pygame, App
+import pygame, App, math
 
 class Map:
 
@@ -20,7 +20,7 @@ class Map:
             pygame.draw.rect( self.surf, App.Config.COLOR_WHITE if tile else App.Config.COLOR_BLACK, rect )
             pygame.draw.rect( self.surf, App.Config.COLOR_LIGHT if tile else App.Config.COLOR_DARKER, rect, 1 )
     
-    def circleCollision( self, entity ) -> bool:
+    def circleCollision( self, entity ) -> int:
 
         for index, tile in enumerate( self.map.tiles ):
 
@@ -29,10 +29,23 @@ class Map:
                 tileTop = self.offsetY + index // self.map.size[ 0 ] * self.tileSize
 
                 if App.Collision.circleToRect( entity.pos[ 0 ], entity.pos[ 1 ], entity.radius, tileLeft, tileTop, self.tileSize, self.tileSize ):
-                    return True
+                    return index
         
-        return False
+        return -1
     
+    def getTileBound( self, index ):
+        bound = lambda: None
+        bound.left = self.offsetX + index % self.map.size[ 0 ] * self.tileSize
+        bound.top = self.offsetY + index // self.map.size[ 0 ] * self.tileSize
+        bound.right = bound.left + self.tileSize
+        bound.bottom = bound.top + self.tileSize
+        # bound.width = self.tileSize
+        # bound.height = self.tileSize
+        # bound.centerX = bound.left + self.tileSize / 2
+        # bound.centerY = bound.top + self.tileSize / 2
+        # bound.radius = math.sqrt( self.tileSize ** 2 + self.tileSize ** 2 ) / 2
+        return bound
+
     def getPlayerStart( self ):
         return self.getEntityStart( self.map.player[ 0 ], self.map.player[ 1 ] )
 

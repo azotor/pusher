@@ -12,10 +12,10 @@ class Collision:
         rectBBottom = rectBTop + rectBHeight
 
         if(
-            rectBRight >= rectALeft and
-            rectBLeft <= rectARight and
-            rectBBottom >= rectATop and
-            rectBTop <= rectABottom
+            rectBRight > rectALeft and
+            rectBLeft < rectARight and
+            rectBBottom > rectATop and
+            rectBTop < rectABottom
         ): return True
 
         return False
