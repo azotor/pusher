@@ -16,11 +16,6 @@ class Play( States.State ):
 
         self.player.pos = self.map.getNewPosIfCollideWithNeighbors( self.player )
 
-        # id = self.map.circleCollision( self.player )
-        # if id > -1:
-            ## self.player.pos = self.map.getShortestEdge( id, self.player )
-            # self.player.colissionPosConvert( self.map.getTileBound( id ) )
-
     def render( self ):
         self.map.render()
         self.player.render()
