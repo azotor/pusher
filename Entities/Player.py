@@ -32,23 +32,3 @@ class Player( Entities.Entity ):
     def render( self ):
         self.surf = pygame.display.get_surface()
         pygame.draw.circle( self.surf, App.Config.COLOR_GREEN, self.pos, self.radius )
-
-    def colissionPosConvert( self, bound ):
-
-        if self.direction[ 1 ] == 0:
-            if self.direction[ 0 ] == 1:
-                self.pos[ 0 ] = bound.left - self.radius
-            elif self.direction[ 0 ] == -1:
-                self.pos[ 0 ] = bound.right + self.radius
-        else:
-            pass
-        
-        if self.direction[ 0 ] == 0:
-            if self.direction[ 1 ] == 1:
-                self.pos[ 1 ] = bound.top - self.radius
-            elif self.direction[ 1 ] == -1:
-                self.pos[ 1 ] = bound.bottom + self.radius
-        else:
-            pass
-
-        # skosy?
