@@ -1,4 +1,4 @@
-import pygame
+import pygame, os
 
 pygame.init()
 
@@ -8,6 +8,7 @@ class Config:
     WINDOW_WIDTH = 800
     WINDOW_HEIGHT = 600
     FPS = 60
+    ICON_PATH = os.path.join( 'Assets', 'Images', 'icon.png' )
 
     # Fonts
     FONT_TITLE = pygame.font.SysFont( 'Arial', 48 )

@@ -18,6 +18,7 @@ class Main( States.State ):
         self.cooldown.start( 100 )
         self.select = 0
         self.surf = pygame.display.get_surface()
+        pygame.display.set_icon( pygame.image.load( App.Config.ICON_PATH ) )
 
     def update( self, change ):
 
