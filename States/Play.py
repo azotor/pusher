@@ -14,9 +14,12 @@ class Play( States.State ):
     def update( self, change ):
         self.player.update()
 
-        id = self.map.circleCollision( self.player )
-        if id > -1:
-            self.player.colissionPosConvert( self.map.getTileBound( id ) )
+        self.player.pos = self.map.getNewPosIfCollideWithNeighbors( self.player )
+
+        # id = self.map.circleCollision( self.player )
+        # if id > -1:
+            ## self.player.pos = self.map.getShortestEdge( id, self.player )
+            # self.player.colissionPosConvert( self.map.getTileBound( id ) )
 
     def render( self ):
         self.map.render()

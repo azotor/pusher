@@ -41,4 +41,4 @@ class Collision:
         circleLeft = circleX - circleRadius
         circleTop = circleY - circleRadius
 
-        return Collision.rectangToRectangle( circleLeft, circleTop, circleRadius * 2, circleRadius * 2, rectLeft, rectTop, rectWidth, rectHeight ) and Collision.circleToCircle( circleX, circleY, circleRadius, rectCenterX, rectCenterY, rectRadius )
+        return Collision.circleToCircle( circleX, circleY, circleRadius, rectCenterX, rectCenterY, rectRadius ) and Collision.rectangToRectangle( circleLeft, circleTop, circleRadius * 2, circleRadius * 2, rectLeft, rectTop, rectWidth, rectHeight )
