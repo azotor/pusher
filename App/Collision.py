@@ -42,3 +42,7 @@ class Collision:
         circleTop = circleY - circleRadius
 
         return Collision.circleToCircle( circleX, circleY, circleRadius, rectCenterX, rectCenterY, rectRadius ) and Collision.rectangToRectangle( circleLeft, circleTop, circleRadius * 2, circleRadius * 2, rectLeft, rectTop, rectWidth, rectHeight )
+    
+    @staticmethod
+    def circleToCircleCollisionDirection( circleAX, circleAY, circleBX, circleBY ):
+        return math.atan2( circleAY - circleBY, circleAX - circleBX )

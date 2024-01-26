@@ -30,5 +30,5 @@ class Player( Entities.Entity ):
         self.pos += self.normalizeDirection() * ds
 
     def render( self ):
-        self.surf = pygame.display.get_surface()
-        pygame.draw.circle( self.surf, App.Config.COLOR_GREEN, self.pos, self.radius )
+        surf = pygame.display.get_surface()
+        pygame.draw.circle( surf, App.Config.COLOR_GREEN, self.pos, self.radius )
